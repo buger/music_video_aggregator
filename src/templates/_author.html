@@ -1,0 +1,56 @@
+{% extends "index.html" %}
+{% block content%}
+<a href="/authors">Back to lib</a>
+{% if author%}
+<div class="author_info">
+  {{author.status}}
+  <div>{{author.description}}</div>
+  <div>Search text: {{author.search_text}}</div>      
+  <div><a href="{{author.link}}">{{author.link}}</a></div>
+  <a href="/author/reprocess_videos/{{author.key}}" style="color: red" onclick="new Ajax.Request(this.href); return false">Reprocess all videos</a>
+  <br/>
+  <a href="javascript:;" onclick="new Ajax.Request('/author/add_to_ban_list/{{author.key}}')" style="color: red">Ban!</a>
+</div>
+<table style="background: white">
+  <tr>
+    <th>Artist</th>
+    <th>Videos</th>
+  </tr>
+  {% for artist in artists %}
+  <tr>
+    <td><a href="{{artist.link}}">{{artist.name}}</a></td>
+    <td>{{artist.video_count}}</td>
+  </tr>
+  {% endfor %}
+</table>
+
+<h4>Unknown videos</h4>
+<table style="background: white">
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Error msg</th>
+    <th>Action</th>
+  </tr>
+  {% for video in videos %}
+  <tr>
+    <td>
+      <a href="{{video.link}}">{{video.title}}</a>
+      <img src="{{video.thumbnail}}" style="width: 120px; height: 90px"/>
+    </td>
+    <td>{{video.description}}</td>
+    <td>{{video.error_msg}}</td>
+    <td style="font-size: 12px">
+      <a href="/video/add_to_processing_queue/{{video.key}}" onclick="new Ajax.Request(this.href); return false">Waiting</a>
+      <br/>
+      <a href="/video/add_to_ban_list/{{video.key}}" style="color: red" onclick="new Ajax.Request(this.href); return false">Wrong</a>
+      <br/>
+      <a href="/video/add_to_ban_list/{{video.key}}?status=static" style="color: red" onclick="new Ajax.Request(this.href); return false">Static</a>
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+{% else %}
+Author not found
+{% endif %}
+{% endblock %}

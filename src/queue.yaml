@@ -1,0 +1,9 @@
+queue:
+- name: default
+  rate: 5/s
+  bucket_size: 10
+
+- name: update-videos
+  rate: 5/s
+  bucket_size: 20
+  

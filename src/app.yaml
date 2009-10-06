@@ -1,0 +1,27 @@
+application: musicvideobuger
+version: dev
+runtime: python
+api_version: 1
+
+handlers:
+- url: /javascripts
+  static_dir: static/javascripts
+  
+- url: /stylesheets
+  static_dir: static/stylesheets  
+
+- url: /images
+  static_dir: static/images
+  
+- url: /process/.*
+  script: video_crawler.py
+
+- url: /report/.*
+  script: report.py
+
+- url: /api/.*
+  script: api.py
+    
+- url: /.*
+  script: main.py
+

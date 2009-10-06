@@ -1,0 +1,95 @@
+indexes:
+- kind: Video
+  properties:
+  - name: author
+  - name: status  
+  
+- kind: Video  
+  properties:
+  - name: status
+  - name: updated_at
+  
+- kind: Video
+  properties:
+  - name: artist
+  - name: status
+
+- kind: Video
+  properties:
+  - name: status
+  - name: created_at
+    direction: desc
+    
+- kind: Video
+  properties:
+  - name: status
+  - name: created_at
+    direction: desc    
+
+    
+- kind: Video
+  properties:
+  - name: status
+  - name: published_at
+  - name: added_by
+    direction: desc    
+    
+- kind: Video
+  properties:
+  - name: status
+  - name: published_at
+    direction: desc    
+    
+- kind: Video
+  properties:
+  - name: artist
+  - name: status
+  - name: created_at
+    direction: desc    
+
+- kind: Video
+  properties:
+  - name: artist
+  - name: status
+  - name: published_at
+    direction: desc   
+    
+- kind: Video
+  properties:
+  - name: author
+  - name: status
+  - name: published_at
+    direction: desc    
+
+- kind: Video
+  properties:
+  - name: status
+  - name: processing_status
+
+- kind: Video
+  properties:
+  - name: processing_status
+  - name: status  
+  
+- kind: Author
+  properties:
+  - name: status
+  - name: updated_at
+
+- kind: Author
+  properties:
+  - name: status
+  - name: processing_status
+  - name: updated_at
+
+- kind: Author
+  properties:
+  - name: status
+  - name: processing_status 
+  
+- kind: Artist
+  properties:
+  - name: tags
+  - name: last_plays
+    direction: desc
+  

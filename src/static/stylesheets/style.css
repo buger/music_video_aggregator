@@ -1,0 +1,409 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  color: #111;
+}
+
+a {
+  border: 0px;
+  text-decoration: none;
+  color: blue;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+img {
+  border: 0px;
+}
+
+body { /* this is the entire page */
+    font-family: Verdana, Arial, Helvetica, sans-serif; 
+    
+    background: url(/images/footer_bg.jpg) top left repeat-x;
+    height: 100%;    
+}
+
+
+#container { /* this is the holder for the page content */
+    position: relative;
+    width: 940px;
+    padding: 3px; /* pad the content a little */
+    margin: 0px auto; /* this centers the container */
+    padding-top: 20px;
+
+    height: auto !important;    
+    height: 100%;
+    min-height: 500px;            
+    
+    padding: 20px;
+    background: #7ca2bc;
+    
+    margin-top: 20px;
+    
+    -moz-border-radius: 30px 30px 30px 30px;    
+}
+
+div.logo {
+  text-align: left;
+  display: none;
+}
+
+#social_icons {
+  position: absolute;
+  right: 10px;
+  top: 3px;
+}
+
+#header {
+  position: relative;
+  text-align: center;
+  background: url('/images/header_bg.jpg') top left repeat-x;
+
+  z-index: 2;
+}
+
+#header .twitter_link {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  color: #111;
+  text-decoration: none; 
+  font-size: 14px;
+  color: white;
+  
+  height: 50px;
+  padding-left: 45px;
+  background: url(/images/twitter_48.png) top left no-repeat;
+}
+
+#header .twitter_link:hover {
+  text-decoration: underline;
+}
+
+#header .twitter_link_hider {
+  position: absolute;
+  left: 45px;
+  top: 20px;
+  width: 120px;
+  height: 30px;  
+}
+
+#header .links {
+  top: 20px;  
+  position: absolute;
+  padding: 0px;
+  width: 100%;
+  text-align: center;
+  
+  font-family: Verdana;
+}
+
+#header .links a {
+  font-size: 27px;
+  color: #333;
+  margin-right: 20px;
+}
+
+#header .links a.radio {
+  margin-right: 0px;
+}
+
+.video {
+
+}
+
+/*
+.video .chanel {
+  font-size: 33px;
+  margin-bottom: 5px;
+}
+*/
+
+.video .container{
+  height: 385px;
+  width: 650px;
+  background: url(/images/video_image.jpg);
+  float: left; 
+}
+
+.video .channels {
+  float: left; 
+  padding-left: 10px
+}
+
+.video .channels .channel {
+  width: auto;
+  font-size: 15px;
+  padding: 9px;
+  -moz-border-radius: 5px 5px 5px 5px;    
+  background: #f9ffdb;
+  margin-bottom: 9px;
+  cursor: pointer;
+}
+
+.video .channels .channel:hover {
+  background: #d8e1ae;
+}
+
+.video .channels .channel .image {
+  float: left;
+  
+  width: 70px;
+  height: 70px;
+  background: #333;
+}
+
+.video .channels .channel .content {
+  float: left;
+  width: 180px;
+  padding-left: 10px;
+}
+
+.video .info {
+  float: left;
+  padding-left: 20px;
+  margin-top: -5px;
+  position: relative;
+  width: 310px;
+}
+
+.video .info .artist {
+  text-decoration: none;
+  font-size: 30px;
+}
+
+.video .info .artist:hover {
+  text-decoration: underline;
+}
+
+.video .info .title {
+  font-size: 18px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-transform: capitalize;
+  color: #000;  
+  font-family: Arial;
+}
+
+.video .info .title a {
+  text-decoration: none;
+}
+
+.video .info .title a:hover{
+  text-decoration: underline;
+}
+
+
+.video .info .description {
+  font-size: 14px;
+  margin-bottom: 5px;
+  text-transform: capitalize;
+  font-family: arial;
+  margin-bottom: 20px;  
+}
+
+.video .info .user {
+  border-top: 1px solid #eee;
+  padding-top: 5px;
+  font-size: 26px;
+}
+
+.video .info .image {
+  padding-top: 10px;    
+  margin-bottom: 10px;
+}
+
+.video .info .image img {
+}
+
+.video .info .artist_tags {
+  width: 300px;    
+}
+
+.video .info .artist_tags a {
+  white-space: nowrap;
+  font-size: 11px;
+  text-decoration: none;
+  color: #0187C5
+}
+
+.video .info .artist_tags a:hover {
+  text-decoration: underline;
+  color: #0187C5;
+}
+
+.video .info .user {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.video .info .user a{
+  color: #353CCB;
+}
+
+.video .info .video_info {
+  height: 240px;
+  overflow-y: hidden;
+}
+
+.video .info .widgets {
+  margin-top: 0px;
+}
+
+.video .info .widgets .twitter {
+  background: url(/images/twitter.png) no-repeat top left;
+  padding-top: 12px;
+  padding-bottom: 32px;
+  padding-left: 70px;
+  font-size: 30px;
+  text-decoration: none;  
+}
+
+.video .info .widgets .twitter:hover {
+  text-decoration: underline;
+}
+
+
+.video .info .widgets .widget {
+  font-size: 13px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.video .info .widgets .widget input {
+  width: 305px;
+  font-size: 10px;
+}
+
+.slogan {
+  clear: both;
+  padding-top: 30px;
+  color: #333;
+  font-size: 50px;
+  text-align: center;
+}
+
+#footer {
+  padding: 5px;
+  margin-top: 50px;
+  text-align: right;
+  font-size: 14px;
+}
+
+#footer a {
+  text-decoration: none;
+  color: blue;
+}
+
+#create_tv {
+  clear: both;
+  padding-top: 20px;
+  min-height: 300px;
+  //height: 300px;
+}
+
+#create_tv .tabs a {
+  font-size: 40px;
+  color: #999;
+  margin-right: 40px;
+  padding-bottom: 18px;
+}
+
+#create_tv .tabs a:hover {
+  text-decoration: none;
+  background: url(/images/tr_disabled.gif) bottom center no-repeat;  
+}
+
+#create_tv .tabs a.active {
+  color: #333;
+  background: url(/images/tr.gif) bottom center no-repeat;
+}
+
+#create_tv .tab_body {
+  padding-top: 25px;
+  display: none;
+}
+
+#create_tv div.active {
+  display: block
+}
+
+#create_tv .text_input {
+  font-size: 70px;
+  border: 1px solid #aaa;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+#create_tv div.tags {
+  padding-top: 0px;
+}
+
+#create_tv div.lastfm .text_input {
+  width: 980px;
+  color: #ccc;
+  margin-top: 20px;
+}
+
+#create_tv div.lastfm .description {
+  font-size: 51px;
+  color: #666;
+}
+
+#create_tv div.artists .text_input {
+  width: 980px;
+  color: #ccc;
+  margin-top: 20px;
+  font-size: 40px;
+}
+
+#create_tv div.artists .description {
+  font-size: 44px;
+  color: #666;
+}
+
+
+.tags {
+  font-size: 60px;
+  text-align: justify;
+  clear: both;
+}
+
+.tags a {
+  text-decoration: none;
+  color: #353ccb;
+}
+
+.tags a:hover {
+  text-decoration: underline;
+}
+
+.clear {
+  clear: both;
+  line-height: 1px;
+  font-size: 1px;
+  height: 1px;
+}
+
+/****************************** Sources table *****************************/
+.sources_table {
+	background: white; 
+	border-top: 1px solid #333;
+	border-right: 1px solid #333; 
+	font-size: 14px;
+}
+
+.sources_table td {
+	border-left: 1px solid #333;
+	border-bottom: 1px solid #333;
+	padding: 5px;		
+}
+
+.sources_table thead td {
+	text-align: center;
+	font-weight: bold;
+	color: #333;
+}

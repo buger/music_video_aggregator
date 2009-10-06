@@ -1,0 +1,25 @@
+cron:
+- description: Process new video sources
+  url: /process/sources
+  schedule: every 1 minutes
+  timezone: Europe/Moscow
+
+- description: Updates sources
+  url: /process/sources?update_videos=true
+  schedule: every 3 hours
+  timezone: Europe/Moscow
+  
+- description: Process new videos
+  url: /process/videos
+  schedule: every 5 minutes
+  timezone: Europe/Moscow      
+
+- description: Generate report
+  url: /report/process
+  schedule: every monday 9:00
+  timezone: Europe/Moscow
+  
+- description: Fix processing state
+  url: /process/fix_processing_state
+  schedule: every friday 9:00
+  timezone: Europe/Moscow        

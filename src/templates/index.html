@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>    
+  	<title>Youtube & Last.fm mashup</title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
+    <script type="text/javascript" src="/javascripts/prototype.js"></script>
+  </head>
+  <body>
+    <div id="header">
+      &nbsp;
+      <a class="twitter_link" href="javascript:;">Follow us on twitter</a>
+      <div class="twitter_link_hider"></div>
+      <div class="links" style="display: none">
+        <a href="javascript:;" class="home">Home</a>
+        <a href="javascript:;" class="lib">Lib</a>
+        <a href="javascript:;" class="radio">Radio</a>            
+      </div>
+      
+      <div id="social_icons">
+        <a href="javascript:;"><img src="/images/delicious.png"/></a>  
+        <a href="javascript:;"><img src="/images/digg.png"/></a>        
+        <a href="javascript:;"><img src="/images/stumbleupon.png"/></a>       
+      </div>   
+      
+      {% ifnotequal error_msg None %}
+      <div style="border: 3px solid red; padding: 10px; text-align: center">
+        <b>Error ocuired</b>: {{error_msg}}
+      </div>
+      {% endifnotequal %}    
+      <div style="text-align:right; margin-right: 130px">
+        {% ifequal username None %}    
+        <form method="POST" action="/signup" style="border: 1px solid green">
+          <input name="username" value="Enter your email"/>
+          <input type="submit" value="Зарегистрироваться"/>        
+        </form>
+        
+        <form method="POST" action="/signin" style="border: 1px solid blue">
+          <input name="username" value="Enter your email"/>
+          <input type="submit" value="Войти"/>        
+        </form>
+        {% else %}
+          {{ username }} <a href="/logout">logout</a>
+        {% endifequal %}
+      </div>          
+    </div>
+    <div id="container">         
+      <div id="content">
+      {% block content%}
+        Replace this, please!    
+      {% endblock %}
+      </div>     
+      <div style="clear: both">&nbsp;</div>
+    </div>
+  </body>
+</html>

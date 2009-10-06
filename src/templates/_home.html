@@ -1,0 +1,39 @@
+{% extends "index.html" %}
+
+{% block content %} 
+<div class="video" id="video_container" style="margin-top: 10px; display: none">
+  <div class="container">
+  </div>
+  <div class="channels">
+    {% for channel in channels %}
+    <div class="channel">
+      <div class="image">&nbsp;</div>
+      <div class="content">
+        <h3>{{channel.title}}</h3>
+        <div>{{channel.description}}</div>
+      </div>
+      
+      <div class="clear">&nbsp;</div>      
+    </div>
+    {% endfor %}
+  </div>
+</div>
+<div style="font-size: 60px">
+{% for tag in tags %}
+  <a href="/tag/{{tag.name}}" style="font-size: {{tag.font_size_in_em}}em">{{tag.name}}</a>&nbsp;
+{% endfor %}
+</div>
+
+<div class="videos" style="position: relative; background: white">
+  {% for video in videos %}
+  <div style="float: left; width: 130px; margin: 5px; height: 170px">    
+    <img src="{{video.thumbnail}}" style="width: 120px; height: 90px"/>
+    <br/>
+    <a href="{{video.link}}" target="_blank" style="font-size: 12px; color: #0033CC; font-weight: bold">{{video.song_title}}</a>
+    <br/>
+    <a href="/authors/{{video.author.username}}" style="font-size: 12px; color: blue;" target="_blank">{{video.author.username}}</a>
+  </div>
+  {% endfor %}
+  <div style="clear: both">&nbsp;</div>
+</div>
+{% endblock %}

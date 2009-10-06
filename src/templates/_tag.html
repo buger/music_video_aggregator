@@ -1,0 +1,31 @@
+{% extends "index.html" %}
+{% block content%}
+<table>
+  <thead>
+    <tr>
+      <th>Artists</th>
+      <th>Videos</th>
+    </tr>
+  </thead>
+  <tr>
+    <td valign="top">
+      {% for artist in artists %}      
+        <a href="{{artist.link}}" target="_blank" style="display: block">{{artist.name}} ({{artist.video_count}})</a>      
+      {% endfor %}
+    </td>    
+    <td valign="top">
+      <div class="videos" style="position: relative; background: white">
+        {% for video in videos %}
+        <div style="float: left; width: 130px; margin: 5px; height: 150px">
+          {{video.videoid}}
+          <img src="{{video.thumbnail}}" style="width: 120px; height: 90px"/>
+          <br/>
+          <a href="{{video.link}}" target="_blank" style="font-size: 12px; color: #0033CC; font-weight: bold">{{video.song_title}}</a>          
+        </div>
+        {% endfor %}
+        <div style="clear: both">&nbsp;</div>
+      </div>    
+    </td>
+  </tr>
+</table>
+{% endblock %}

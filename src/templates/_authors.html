@@ -1,0 +1,78 @@
+{% extends "index.html" %}
+{% block content%}
+  <form action="/authors" method="post">
+    <input name="author"/>
+    <input type="submit" value="Добавить" />
+  </form>  
+  <table class="sources_table" cellpadding="0" cellspacing="0" width="100%">
+    <thead>
+      <tr>
+        <td rowspan="2">Username</td>        
+        <td rowspan="2">Status</td>
+        <td rowspan="2">Description</td>
+        <td rowspan="2">Search text</td>        
+        <td rowspan="2">Link</td>
+        <td colspan="10">Videos</td>
+        <td rowspan="2">Start index</td>
+        <td rowspan="2">Action</td>
+      </tr>
+      <tr>
+        <td align="center" width="20px"><a href="/authors?order=p_vs_e">P/E</a></td>
+        <td align="center" width="20px"><a href="/authors?order=processed">P</a></td>
+        <td align="center" width="20px"><a href="/authors?order=waiting">W</a></td>
+        <td align="center" width="20px"><a href="/authors?order=errors" style="color: red">E</a></td>
+        <td align="center" width="20px"><a href="/authors?order=restricted" style="color: red">R</a></td>
+        <td align="center" width="20px"><a href="/authors?order=wrong" style="color: red">W</a></td>
+        <td align="center" width="20px"><a href="/authors?order=artist_not_found" style="color: red">A</a></td>
+        <td align="center" width="20px"><a href="/authors?order=confirm" style="color: red">C</a></td>
+        <td align="center" width="20px"><a href="/authors?order=static" style="color: red">S</a></td>
+        <td align="center" width="20px"><a href="/authors?order=deleted" style="color: red" title="deleted">D</a></td>
+      </tr>
+    </thead>
+  {% for author in authors %}
+    <tr>
+      <td>
+        <a href="/authors/{{author.username}}">{{author.username}}</a>
+        &nbsp;
+        <a href="http://www.youtube.com/user/{{author.username}}" target="_blank" style="color: red">yt</a>
+      </td>
+      <td>
+        {% ifequal author.status const.State_Processed %}
+          Processed
+        {% else %}
+          {% ifequal author.status const.State_Waiting %}        
+            Waiting
+          {% else %}
+            {{author.status}}
+          {% endifequal %}
+        {% endifequal %}      
+      </td>
+      <td>{{author.description}}</td>
+      <td>{{author.search_text}}</td>      
+      <td><a href="{{author.link}}">{{author.link}}</a></td>
+      <td><a href="/authors/{{author.username}}">{{author.video_index.processed_vs_errors_ratio}}</a></td>
+      <td><a href="/authors/{{author.username}}">{{author.video_index.processed}}</a></td>
+      <td><a href="/authors/{{author.username}}/waiting">{{author.video_index.waiting}}</a></td>
+      <td><a href="/authors/{{author.username}}/error">{{author.video_index.error}}</a></td>
+      <td><a href="/authors/{{author.username}}/restricted">{{author.video_index.restricted}}</a></td>
+      <td><a href="/authors/{{author.username}}/wrong">{{author.video_index.wrong}}</a></td>
+      <td><a href="/authors/{{author.username}}/not_found">{{author.video_index.artist_not_found}}</a></td>
+      <td><a href="/authors/{{author.username}}/confirm">{{author.video_index.waiting_for_confirm}}</a></td>
+      <td><a href="/authors/{{author.username}}/static">{{author.video_index.static_video}}</a></td>
+      <td><a href="/authors/{{author.username}}/deleted">{{author.video_index.deleted_video}}</a></td>            
+      <td>{{author.start_index}}</td>      
+      <td>
+        <a href="javascript:;" onclick="new Ajax.Request('/author/add_to_processing_queue/{{author.key}}')">P</a>
+        <br/>
+        <a href="javascript:;" onclick="new Ajax.Request('/author/add_to_ban_list/{{author.key}}')" style="color: red">B</a>
+      </td>        
+    </tr>
+  {% endfor %}   
+  </table>  
+  {% ifnotequal previous None %}
+  <a href="/authors?page={{previous}}&order={{order}}">Back</a>
+  {% endifnotequal%}  
+  {% ifnotequal next None %}
+  <a href="/authors?page={{next}}&order={{order}}">Next</a>
+  {% endifnotequal%}  
+{% endblock %}

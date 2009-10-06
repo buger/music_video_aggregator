@@ -1,0 +1,18 @@
+{% extends "index.html" %}
+{% block content%}
+<a href="/authors">Back to lib</a>
+{% if artist %}
+<table style="background: white">
+  <tr>
+    <th>Title</th>
+  </tr>
+  {% for video in videos %}
+  <tr>    
+    <td><a href="/authors/{{video.author.username}}" style="font-size: 12px; color: black;" target="_blank">{{video.author.username}}</a>  <a href="{{video.link}}">{{video.title}}{%if video.live_version%}(live){%endif%}</a></td>
+  </tr>
+  {% endfor %}
+</table>
+{% else %}
+Artist not found
+{% endif %}
+{% endblock %}
